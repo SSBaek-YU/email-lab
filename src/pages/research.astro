@@ -22,12 +22,22 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
               </div>
             </div>
             {area.image && (
-              <img
-                src={`${base}${area.image.replace(/^\//, '')}`}
-                alt={area.title}
-                class="research-img"
-                loading="lazy"
-              />
+              <div class="research-images">
+                <img
+                  src={`${base}${area.image.replace(/^\//, '')}`}
+                  alt={area.title}
+                  class="research-img"
+                  loading="lazy"
+                />
+                {area.image2 && (
+                  <img
+                    src={`${base}${area.image2.replace(/^\//, '')}`}
+                    alt={`${area.title} - additional`}
+                    class="research-img"
+                    loading="lazy"
+                  />
+                )}
+              </div>
             )}
             <p class="research-desc">{area.description}</p>
             <p class="research-desc-ko">{area.descriptionKo}</p>
@@ -95,10 +105,16 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
     font-size: var(--text-sm);
   }
 
+  .research-images {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
   .research-img {
     width: 100%;
     border-radius: var(--radius-md);
-    margin-bottom: var(--space-4);
     border: 1px solid var(--color-border-light);
   }
 
