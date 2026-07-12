@@ -12,7 +12,7 @@ export interface Publication {
   url?: string;
   keywords?: string[];
   researchArea?: string;
-  authorRole?: 'first' | 'co-first' | 'corresponding';
+  authorRole?: 'first' | 'corresponding';
   needsVerification?: boolean;
   category: 'international' | 'domestic';
 }
@@ -153,7 +153,7 @@ export const publications: Publication[] = [
     pages: '100679',
     researchArea: 'hydro-modeling',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'corresponding',
   },
   {
     id: 73,
@@ -307,7 +307,7 @@ export const publications: Publication[] = [
     pages: '142515',
     researchArea: 'water-quality-hab',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'first',
   },
   {
     id: 59,
@@ -328,6 +328,7 @@ export const publications: Publication[] = [
     pages: '141402',
     researchArea: 'water-treatment',
     category: 'international',
+    authorRole: 'corresponding',
   },
   // ===== 2023 =====
   {
@@ -441,6 +442,7 @@ export const publications: Publication[] = [
     issue: '12',
     pages: '4460',
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 47,
@@ -723,7 +725,7 @@ export const publications: Publication[] = [
     pages: '125370',
     researchArea: 'hydro-modeling',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'first',
   },
   {
     id: 23,
@@ -757,7 +759,7 @@ export const publications: Publication[] = [
     pages: '106395',
     researchArea: 'water-quality-hab',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'first',
   },
   {
     id: 20,
@@ -817,7 +819,7 @@ export const publications: Publication[] = [
     pages: '117164',
     researchArea: 'water-treatment',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'first',
   },
   {
     id: 15,
@@ -936,7 +938,7 @@ export const publications: Publication[] = [
     pages: '442–457',
     researchArea: 'hydro-modeling',
     category: 'international',
-    authorRole: 'co-first',
+    authorRole: 'first',
   },
   // ===== 2015 =====
   {

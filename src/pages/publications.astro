@@ -101,9 +101,6 @@ const areas = researchAreas;
                   {pub.authorRole === 'first' && (
                     <span class="tag tag-first">First Author</span>
                   )}
-                  {pub.authorRole === 'co-first' && (
-                    <span class="tag tag-cofirst">Co-First Author</span>
-                  )}
                   {pub.authorRole === 'corresponding' && (
                     <span class="tag tag-corresponding">Corresponding Author</span>
                   )}
@@ -281,11 +278,6 @@ const areas = researchAreas;
   .tag-first {
     background: var(--color-primary-bg);
     color: var(--color-primary);
-  }
-
-  .tag-cofirst {
-    background: #e8eaf6;
-    color: #3949ab;
   }
 
   .tag-corresponding {
