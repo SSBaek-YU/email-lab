@@ -101,21 +101,27 @@ const memberSections = [
               </div>
             ))}
 
-            {/* Who's Next card at the end of each section */}
-            <a href={`${base}openings/`} class="card member-card whos-next-card">
-              <img
-                src={`${base}images/people/whos-next.gif`}
-                alt="Join our lab"
-                class="member-photo whos-next-img"
-                loading="lazy"
-              />
-              <h4>Who's Next?</h4>
-              <p class="member-name-ko">Join Our Lab!</p>
-              <p class="member-period">We are recruiting</p>
-            </a>
           </div>
         </div>
       ))}
+
+      {/* Who's Next */}
+      <div class="members-section whos-next-section">
+        <h2>Who's Next? <span class="title-ko">다음은 당신입니다</span></h2>
+        <a href={`${base}openings/`} class="whos-next-banner">
+          <img
+            src={`${base}images/people/whos-next.gif`}
+            alt="Join our lab"
+            class="whos-next-img"
+            loading="lazy"
+          />
+          <div class="whos-next-text">
+            <h3>Join Our Lab!</h3>
+            <p>We are actively recruiting motivated students and researchers.</p>
+            <span class="btn btn-primary">View Open Positions</span>
+          </div>
+        </a>
+      </div>
 
       {/* Alumni */}
       {alumni.length > 0 && (
@@ -296,28 +302,51 @@ const memberSections = [
     margin-top: var(--space-2);
   }
 
-  /* Who's Next Card */
-  .whos-next-card {
+  /* Who's Next Banner */
+  .whos-next-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-8);
+    background: var(--color-bg-alt);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
     text-decoration: none;
     color: var(--color-text);
-    border: 2px dashed var(--color-border);
-    background: var(--color-bg-alt);
     transition: all var(--transition);
   }
 
-  .whos-next-card:hover {
+  .whos-next-banner:hover {
     border-color: var(--color-primary);
     background: var(--color-primary-bg);
     box-shadow: var(--shadow-md);
   }
 
-  .whos-next-card h4 {
-    color: var(--color-primary);
+  .whos-next-img {
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    background: var(--color-bg);
   }
 
-  .whos-next-img {
-    border-radius: var(--radius-full);
-    background: var(--color-bg);
+  .whos-next-text h3 {
+    font-size: var(--text-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .whos-next-text p {
+    color: var(--color-text-light);
+    margin-bottom: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .whos-next-banner {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 
   /* Alumni */
