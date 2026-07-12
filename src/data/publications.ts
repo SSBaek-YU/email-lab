@@ -14,6 +14,7 @@ export interface Publication {
   researchArea?: string;
   isCorresponding?: boolean;
   needsVerification?: boolean;
+  category: 'international' | 'domestic';
 }
 
 export const publications: Publication[] = [
@@ -26,6 +27,7 @@ export const publications: Publication[] = [
     year: 2026,
     researchArea: 'neuromorphic',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 84,
@@ -36,6 +38,7 @@ export const publications: Publication[] = [
     pages: '126107',
     researchArea: 'environmental-ai',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 83,
@@ -46,6 +49,7 @@ export const publications: Publication[] = [
     pages: '1–14',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 82,
@@ -56,6 +60,7 @@ export const publications: Publication[] = [
     pages: '100540',
     researchArea: 'digital-twin',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 81,
@@ -67,6 +72,7 @@ export const publications: Publication[] = [
     issue: '4',
     pages: '1077–1095',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 80,
@@ -79,6 +85,7 @@ export const publications: Publication[] = [
     articleNumber: '2630557',
     researchArea: 'gnn-spatiotemporal',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 79,
@@ -89,6 +96,7 @@ export const publications: Publication[] = [
     volume: '225',
     pages: '119227',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 78,
@@ -100,6 +108,7 @@ export const publications: Publication[] = [
     issue: '2',
     researchArea: 'environmental-ai',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2025 =====
   {
@@ -111,6 +120,7 @@ export const publications: Publication[] = [
     pages: '106829',
     researchArea: 'digital-twin',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 76,
@@ -120,6 +130,7 @@ export const publications: Publication[] = [
     year: 2025,
     pages: '140767',
     researchArea: 'gnn-spatiotemporal',
+    category: 'international',
   },
   {
     id: 75,
@@ -131,6 +142,7 @@ export const publications: Publication[] = [
     issue: '5',
     pages: '797–814',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 74,
@@ -141,6 +153,7 @@ export const publications: Publication[] = [
     pages: '100679',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 73,
@@ -151,6 +164,7 @@ export const publications: Publication[] = [
     volume: '496',
     pages: '139195',
     researchArea: 'gnn-spatiotemporal',
+    category: 'international',
   },
   {
     id: 72,
@@ -161,6 +175,7 @@ export const publications: Publication[] = [
     volume: '28',
     pages: '100367',
     researchArea: 'gnn-spatiotemporal',
+    category: 'international',
   },
   {
     id: 71,
@@ -172,6 +187,7 @@ export const publications: Publication[] = [
     issue: '19',
     pages: '9790–9801',
     researchArea: 'water-treatment',
+    category: 'international',
   },
   {
     id: 70,
@@ -182,6 +198,7 @@ export const publications: Publication[] = [
     volume: '73',
     articleNumber: '107685',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 69,
@@ -193,6 +210,7 @@ export const publications: Publication[] = [
     articleNumber: '124719',
     researchArea: 'digital-twin',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 68,
@@ -202,6 +220,7 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '220–223',
     researchArea: 'digital-twin',
+    category: 'international',
   },
   // ===== 2024 =====
   {
@@ -211,6 +230,7 @@ export const publications: Publication[] = [
     journal: 'Energy & Fuels',
     year: 2024,
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 66,
@@ -221,6 +241,7 @@ export const publications: Publication[] = [
     pages: '100514',
     researchArea: 'gnn-spatiotemporal',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 65,
@@ -230,6 +251,7 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '136421',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 64,
@@ -240,6 +262,7 @@ export const publications: Publication[] = [
     pages: '122401',
     researchArea: 'gnn-spatiotemporal',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 63,
@@ -251,6 +274,7 @@ export const publications: Publication[] = [
     issue: '1',
     articleNumber: '2393489',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 62,
@@ -261,6 +285,7 @@ export const publications: Publication[] = [
     pages: '122092',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 61,
@@ -270,6 +295,7 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '100228',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 60,
@@ -280,6 +306,7 @@ export const publications: Publication[] = [
     pages: '142515',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 59,
@@ -288,6 +315,7 @@ export const publications: Publication[] = [
     journal: 'Environmental Engineering Research',
     year: 2024,
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 58,
@@ -298,6 +326,7 @@ export const publications: Publication[] = [
     volume: '352',
     pages: '141402',
     researchArea: 'water-treatment',
+    category: 'international',
   },
   // ===== 2023 =====
   {
@@ -309,6 +338,7 @@ export const publications: Publication[] = [
     volume: '78',
     pages: '102370',
     researchArea: 'environmental-ai',
+    category: 'international',
   },
   {
     id: 56,
@@ -319,6 +349,7 @@ export const publications: Publication[] = [
     pages: '130240',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 55,
@@ -329,6 +360,7 @@ export const publications: Publication[] = [
     pages: '138842',
     researchArea: 'environmental-ai',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 54,
@@ -338,6 +370,7 @@ export const publications: Publication[] = [
     year: 2023,
     pages: '111460',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 53,
@@ -348,6 +381,7 @@ export const publications: Publication[] = [
     volume: '156',
     pages: '111113',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 52,
@@ -359,6 +393,7 @@ export const publications: Publication[] = [
     pages: '129973',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 51,
@@ -368,6 +403,7 @@ export const publications: Publication[] = [
     year: 2023,
     volume: '418',
     pages: '138067',
+    category: 'international',
   },
   {
     id: 50,
@@ -379,6 +415,7 @@ export const publications: Publication[] = [
     pages: '119865',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 49,
@@ -391,6 +428,7 @@ export const publications: Publication[] = [
     pages: '210280',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2022 =====
   {
@@ -402,6 +440,7 @@ export const publications: Publication[] = [
     volume: '22',
     issue: '12',
     pages: '4460',
+    category: 'international',
   },
   {
     id: 47,
@@ -414,6 +453,7 @@ export const publications: Publication[] = [
     pages: '584–588',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 46,
@@ -424,6 +464,7 @@ export const publications: Publication[] = [
     volume: '139',
     pages: '108924',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 45,
@@ -435,6 +476,7 @@ export const publications: Publication[] = [
     pages: '118494',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 44,
@@ -445,6 +487,7 @@ export const publications: Publication[] = [
     volume: '432',
     pages: '128714',
     researchArea: 'environmental-ai',
+    category: 'international',
   },
   {
     id: 43,
@@ -455,6 +498,7 @@ export const publications: Publication[] = [
     pages: '118080',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 42,
@@ -466,6 +510,7 @@ export const publications: Publication[] = [
     pages: '150938',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2021 =====
   {
@@ -478,6 +523,7 @@ export const publications: Publication[] = [
     pages: '117821',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 40,
@@ -489,6 +535,7 @@ export const publications: Publication[] = [
     issue: '12',
     pages: '6185–6202',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 39,
@@ -500,6 +547,7 @@ export const publications: Publication[] = [
     issue: '9',
     pages: '667–680',
     researchArea: 'environmental-ai',
+    category: 'international',
   },
   {
     id: 38,
@@ -510,6 +558,7 @@ export const publications: Publication[] = [
     pages: '1446',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 37,
@@ -520,6 +569,7 @@ export const publications: Publication[] = [
     volume: '203',
     pages: '117483',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 36,
@@ -530,6 +580,7 @@ export const publications: Publication[] = [
     volume: '794',
     pages: '148592',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 35,
@@ -540,6 +591,7 @@ export const publications: Publication[] = [
     volume: '104',
     pages: '102029',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 34,
@@ -551,6 +603,7 @@ export const publications: Publication[] = [
     pages: '105068',
     researchArea: 'environmental-ai',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 33,
@@ -562,6 +615,7 @@ export const publications: Publication[] = [
     pages: '112415',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 32,
@@ -573,6 +627,7 @@ export const publications: Publication[] = [
     pages: '126858',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 31,
@@ -584,6 +639,7 @@ export const publications: Publication[] = [
     pages: '102007',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 30,
@@ -595,6 +651,7 @@ export const publications: Publication[] = [
     issue: '4',
     pages: '709',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 29,
@@ -605,6 +662,7 @@ export const publications: Publication[] = [
     volume: '403',
     pages: '123599',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 28,
@@ -615,6 +673,7 @@ export const publications: Publication[] = [
     volume: '409',
     pages: '124587',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 27,
@@ -626,6 +685,7 @@ export const publications: Publication[] = [
     pages: '116535',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2020 =====
   {
@@ -639,6 +699,7 @@ export const publications: Publication[] = [
     pages: '3399',
     researchArea: 'environmental-ai',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 25,
@@ -649,6 +710,7 @@ export const publications: Publication[] = [
     volume: '186',
     pages: '116349',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 24,
@@ -660,6 +722,7 @@ export const publications: Publication[] = [
     pages: '125370',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 23,
@@ -670,6 +733,7 @@ export const publications: Publication[] = [
     volume: '721',
     pages: '137725',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 22,
@@ -680,6 +744,7 @@ export const publications: Publication[] = [
     volume: '180',
     pages: '104–110',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 21,
@@ -691,6 +756,7 @@ export const publications: Publication[] = [
     pages: '106395',
     researchArea: 'water-quality-hab',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 20,
@@ -702,6 +768,7 @@ export const publications: Publication[] = [
     pages: '109920',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 19,
@@ -713,6 +780,7 @@ export const publications: Publication[] = [
     pages: '124886',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 18,
@@ -724,6 +792,7 @@ export const publications: Publication[] = [
     issue: '7',
     pages: '1073',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   // ===== 2019 =====
   {
@@ -735,6 +804,7 @@ export const publications: Publication[] = [
     volume: '233',
     pages: '111350',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 16,
@@ -746,6 +816,7 @@ export const publications: Publication[] = [
     pages: '117164',
     researchArea: 'water-treatment',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 15,
@@ -756,6 +827,7 @@ export const publications: Publication[] = [
     volume: '575',
     pages: '1099–1110',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 14,
@@ -766,6 +838,7 @@ export const publications: Publication[] = [
     volume: '576',
     pages: '66–77',
     researchArea: 'water-treatment',
+    category: 'international',
   },
   {
     id: 13,
@@ -777,6 +850,7 @@ export const publications: Publication[] = [
     pages: '104074',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 12,
@@ -787,6 +861,7 @@ export const publications: Publication[] = [
     volume: '122',
     pages: '104073',
     researchArea: 'water-quality-hab',
+    category: 'international',
   },
   {
     id: 11,
@@ -799,6 +874,7 @@ export const publications: Publication[] = [
     pages: '512',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2017 =====
   {
@@ -811,6 +887,7 @@ export const publications: Publication[] = [
     issue: '6',
     pages: '1281–1292',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 9,
@@ -822,6 +899,7 @@ export const publications: Publication[] = [
     issue: '6',
     pages: '542',
     researchArea: 'remote-sensing',
+    category: 'international',
   },
   {
     id: 8,
@@ -833,6 +911,7 @@ export const publications: Publication[] = [
     issue: '7',
     pages: '451',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 7,
@@ -843,6 +922,7 @@ export const publications: Publication[] = [
     volume: '86',
     pages: '1–8',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   // ===== 2016 =====
   {
@@ -855,6 +935,7 @@ export const publications: Publication[] = [
     pages: '442–457',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== 2015 =====
   {
@@ -867,6 +948,7 @@ export const publications: Publication[] = [
     pages: '122–131',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   {
     id: 4,
@@ -878,6 +960,7 @@ export const publications: Publication[] = [
     issue: '12',
     pages: '6847–6860',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
   {
     id: 3,
@@ -890,10 +973,12 @@ export const publications: Publication[] = [
     pages: '347–359',
     researchArea: 'hydro-modeling',
     isCorresponding: true,
+    category: 'international',
   },
   // ===== Korean Journals =====
   {
     id: 7.5,
+    category: 'domestic',
     authors: '장지이, 권용성, 표종철, & 백상수',
     title: '수자원과 유해 조류 분야에서의 딥러닝 적용 사례',
     journal: '물과 미래: 한국수자원학회지',
@@ -905,6 +990,7 @@ export const publications: Publication[] = [
   },
   {
     id: 7.4,
+    category: 'domestic',
     authors: '표종철, 박상훈, 조경화, & 백상수',
     title: '수 환경 분야에서의 딥러닝 모델 적용사례',
     journal: '상하수도학회지',
@@ -916,6 +1002,7 @@ export const publications: Publication[] = [
   },
   {
     id: 7.3,
+    category: 'domestic',
     authors: '백상수, 최한나, & 박종관',
     title: '저영향개발 모델링 기법 비교연구: 사례중심으로',
     journal: '대한환경공학회',
@@ -924,6 +1011,7 @@ export const publications: Publication[] = [
   },
   {
     id: 7.2,
+    category: 'domestic',
     authors: '최동호, 정재운, 윤광식, 유승화, 범진아, & 백상수',
     title: '원단위와 LID 시설규모 산정을 위한 상업지역과 위락시설지역의 유출율 분석',
     journal: '한국수처리학회지',
@@ -931,15 +1019,6 @@ export const publications: Publication[] = [
     volume: '23',
     issue: '3',
     pages: '53–64',
-    researchArea: 'hydro-modeling',
-  },
-  // ===== Dissertation =====
-  {
-    id: 7.1,
-    authors: 'Baek, S. S.',
-    title: 'Improvement of low impact development (LID) models coupled with watershed models: application, performance, and optimization',
-    journal: 'Ph.D. Dissertation, UNIST',
-    year: 2020,
     researchArea: 'hydro-modeling',
   },
   // ===== 2013 =====
@@ -953,21 +1032,21 @@ export const publications: Publication[] = [
     issue: '5',
     pages: '648–655',
     researchArea: 'hydro-modeling',
+    category: 'international',
   },
 ];
 
-export function getPublicationsByYear(): Map<number, Publication[]> {
-  const byYear = new Map<number, Publication[]>();
-  for (const pub of publications) {
-    const list = byYear.get(pub.year) || [];
-    list.push(pub);
-    byYear.set(pub.year, list);
-  }
-  return new Map([...byYear.entries()].sort((a, b) => b[0] - a[0]));
+export function getInternationalPubs(): Publication[] {
+  return publications.filter((p) => p.category === 'international');
 }
 
-export function getYears(): number[] {
-  return [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a);
+export function getDomesticPubs(): Publication[] {
+  return publications.filter((p) => p.category === 'domestic');
+}
+
+export function getYears(category?: 'international' | 'domestic'): number[] {
+  const pubs = category ? publications.filter((p) => p.category === category) : publications;
+  return [...new Set(pubs.map((p) => p.year))].sort((a, b) => b - a);
 }
 
 export function getResearchAreaIds(): string[] {

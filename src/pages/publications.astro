@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
-import { publications, getYears } from '../data/publications';
+import { getInternationalPubs, getDomesticPubs, getYears } from '../data/publications';
 import { researchAreas } from '../data/research';
 
-const years = getYears();
+const intlPubs = getInternationalPubs();
+const domesticPubs = getDomesticPubs();
+const years = getYears('international');
 const areas = researchAreas;
 ---
 
@@ -14,7 +16,7 @@ const areas = researchAreas;
       <div class="pub-header">
         <div>
           <h1 class="section-title">Publications</h1>
-          <p class="section-subtitle">{publications.length} peer-reviewed publications</p>
+          <p class="section-subtitle">{intlPubs.length + domesticPubs.length} peer-reviewed publications</p>
         </div>
         <a
           href={siteConfig.scholarUrl}
@@ -29,84 +31,113 @@ const areas = researchAreas;
         </a>
       </div>
 
-      <!-- Filters -->
-      <div class="filters" id="filters">
-        <div class="filter-group">
-          <label for="search-input">Search</label>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search by title or author..."
-            class="filter-input"
-          />
-        </div>
-        <div class="filter-group">
-          <label for="year-filter">Year</label>
-          <select id="year-filter" class="filter-select">
-            <option value="">All Years</option>
-            {years.map((y) => (
-              <option value={String(y)}>{y}</option>
-            ))}
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="area-filter">Research Area</label>
-          <select id="area-filter" class="filter-select">
-            <option value="">All Areas</option>
-            {areas.map((a) => (
-              <option value={a.id}>{a.title}</option>
-            ))}
-          </select>
-        </div>
-      </div>
+      <!-- SCI / International Journal Publications -->
+      <div class="pub-section">
+        <h2 class="pub-section-title">International Journal Publications</h2>
+        <p class="pub-section-count">{intlPubs.length} articles</p>
 
-      <!-- Publication List -->
-      <div class="pub-list" id="pub-list">
-        {publications.map((pub) => (
-          <article
-            class="pub-item"
-            data-year={String(pub.year)}
-            data-area={pub.researchArea || ''}
-            data-search={`${pub.title.toLowerCase()} ${pub.authors.toLowerCase()}`}
-          >
-            <div class="pub-num">{pub.id}</div>
-            <div class="pub-content">
-              <h3 class="pub-title">{pub.title}</h3>
-              <p class="pub-authors">{pub.authors}</p>
-              <p class="pub-journal">
-                <em>{pub.journal}</em>
-                {pub.volume && `, ${pub.volume}`}
-                {pub.issue && `(${pub.issue})`}
-                {pub.pages && `, ${pub.pages}`}
-                {pub.articleNumber && `, ${pub.articleNumber}`}
-                {' '}({pub.year})
-              </p>
-              <div class="pub-actions">
-                {pub.doi && (
-                  <a
-                    href={`https://doi.org/${pub.doi}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-sm btn-outline"
-                  >
-                    DOI
-                  </a>
-                )}
-                {pub.isCorresponding && (
-                  <span class="tag tag-corresponding">Corresponding Author</span>
-                )}
-                {pub.needsVerification && (
-                  <span class="tag tag-verify">Needs Verification</span>
-                )}
+        <!-- Filters -->
+        <div class="filters" id="filters">
+          <div class="filter-group">
+            <label for="search-input">Search</label>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by title or author..."
+              class="filter-input"
+            />
+          </div>
+          <div class="filter-group">
+            <label for="year-filter">Year</label>
+            <select id="year-filter" class="filter-select">
+              <option value="">All Years</option>
+              {years.map((y) => (
+                <option value={String(y)}>{y}</option>
+              ))}
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="area-filter">Research Area</label>
+            <select id="area-filter" class="filter-select">
+              <option value="">All Areas</option>
+              {areas.map((a) => (
+                <option value={a.id}>{a.title}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div class="pub-list" id="pub-list-intl">
+          {intlPubs.map((pub, i) => (
+            <article
+              class="pub-item"
+              data-year={String(pub.year)}
+              data-area={pub.researchArea || ''}
+              data-search={`${pub.title.toLowerCase()} ${pub.authors.toLowerCase()}`}
+            >
+              <div class="pub-num">{intlPubs.length - i}</div>
+              <div class="pub-content">
+                <h3 class="pub-title">{pub.title}</h3>
+                <p class="pub-authors">{pub.authors}</p>
+                <p class="pub-journal">
+                  <em>{pub.journal}</em>
+                  {pub.volume && `, ${pub.volume}`}
+                  {pub.issue && `(${pub.issue})`}
+                  {pub.pages && `, ${pub.pages}`}
+                  {pub.articleNumber && `, ${pub.articleNumber}`}
+                  {' '}({pub.year})
+                </p>
+                <div class="pub-actions">
+                  {pub.doi && (
+                    <a
+                      href={`https://doi.org/${pub.doi}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-sm btn-outline"
+                    >
+                      DOI
+                    </a>
+                  )}
+                  {pub.isCorresponding && (
+                    <span class="tag tag-corresponding">Corresponding Author</span>
+                  )}
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
+
+        <p class="pub-note" id="no-results" style="display:none;">
+          No publications match your search criteria.
+        </p>
       </div>
 
-      <p class="pub-note" id="no-results" style="display:none;">
-        No publications match your search criteria.
-      </p>
+      <!-- Domestic Journal Publications -->
+      {domesticPubs.length > 0 && (
+        <div class="pub-section domestic-section">
+          <h2 class="pub-section-title">Domestic Journal Publications</h2>
+          <p class="pub-section-count">{domesticPubs.length} articles</p>
+
+          <div class="pub-list" id="pub-list-domestic">
+            {domesticPubs.map((pub, i) => (
+              <article class="pub-item">
+                <div class="pub-num">{domesticPubs.length - i}</div>
+                <div class="pub-content">
+                  <h3 class="pub-title">{pub.title}</h3>
+                  <p class="pub-authors">{pub.authors}</p>
+                  <p class="pub-journal">
+                    <em>{pub.journal}</em>
+                    {pub.volume && `, ${pub.volume}`}
+                    {pub.issue && `(${pub.issue})`}
+                    {pub.pages && `, ${pub.pages}`}
+                    {' '}({pub.year})
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
@@ -119,6 +150,27 @@ const areas = researchAreas;
     flex-wrap: wrap;
     gap: var(--space-4);
     margin-bottom: var(--space-6);
+  }
+
+  .pub-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .pub-section-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-1);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary-bg);
+  }
+
+  .pub-section-count {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .domestic-section .pub-section-title {
+    border-bottom-color: #e8f5e9;
   }
 
   .filters {
@@ -225,11 +277,6 @@ const areas = researchAreas;
     color: var(--color-secondary);
   }
 
-  .tag-verify {
-    background: #fff3e0;
-    color: var(--color-warning);
-  }
-
   .pub-note {
     text-align: center;
     color: var(--color-text-muted);
@@ -261,7 +308,7 @@ const areas = researchAreas;
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const yearFilter = document.getElementById('year-filter') as HTMLSelectElement;
   const areaFilter = document.getElementById('area-filter') as HTMLSelectElement;
-  const pubItems = document.querySelectorAll('.pub-item') as NodeListOf<HTMLElement>;
+  const pubItems = document.querySelectorAll('#pub-list-intl .pub-item') as NodeListOf<HTMLElement>;
   const noResults = document.getElementById('no-results') as HTMLElement;
 
   function filterPubs() {
