@@ -143,6 +143,7 @@ export const publications: Publication[] = [
     pages: '797–814',
     researchArea: 'remote-sensing',
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 74,
@@ -317,6 +318,7 @@ export const publications: Publication[] = [
     year: 2024,
     researchArea: 'hydro-modeling',
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 58,
@@ -430,6 +432,7 @@ export const publications: Publication[] = [
     pages: '210280',
     researchArea: 'water-quality-hab',
     category: 'international',
+    authorRole: 'corresponding',
   },
   // ===== 2022 =====
   {
