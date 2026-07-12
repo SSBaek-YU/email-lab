@@ -12,7 +12,7 @@ export interface Publication {
   url?: string;
   keywords?: string[];
   researchArea?: string;
-  isCorresponding?: boolean;
+  authorRole?: 'first' | 'co-first' | 'corresponding';
   needsVerification?: boolean;
   category: 'international' | 'domestic';
 }
@@ -26,8 +26,8 @@ export const publications: Publication[] = [
     journal: 'npj Clean Water',
     year: 2026,
     researchArea: 'neuromorphic',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 84,
@@ -37,8 +37,8 @@ export const publications: Publication[] = [
     year: 2026,
     pages: '126107',
     researchArea: 'environmental-ai',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 83,
@@ -48,8 +48,8 @@ export const publications: Publication[] = [
     year: 2026,
     pages: '1–14',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 82,
@@ -59,8 +59,8 @@ export const publications: Publication[] = [
     year: 2026,
     pages: '100540',
     researchArea: 'digital-twin',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 81,
@@ -84,8 +84,8 @@ export const publications: Publication[] = [
     issue: '1',
     articleNumber: '2630557',
     researchArea: 'gnn-spatiotemporal',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 79,
@@ -107,8 +107,8 @@ export const publications: Publication[] = [
     volume: '31',
     issue: '2',
     researchArea: 'environmental-ai',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   // ===== 2025 =====
   {
@@ -119,8 +119,8 @@ export const publications: Publication[] = [
     year: 2025,
     pages: '106829',
     researchArea: 'digital-twin',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 76,
@@ -152,8 +152,8 @@ export const publications: Publication[] = [
     year: 2025,
     pages: '100679',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   {
     id: 73,
@@ -209,8 +209,8 @@ export const publications: Publication[] = [
     volume: '377',
     articleNumber: '124719',
     researchArea: 'digital-twin',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 68,
@@ -221,6 +221,7 @@ export const publications: Publication[] = [
     pages: '220–223',
     researchArea: 'digital-twin',
     category: 'international',
+    authorRole: 'corresponding',
   },
   // ===== 2024 =====
   {
@@ -229,8 +230,8 @@ export const publications: Publication[] = [
     title: 'Carbon Nanotubes Decorated Bimetallic Metal–Organic Framework Nanocomposite for High-Performance Symmetric Supercapacitor Device and Their Charge Storage Mechanism',
     journal: 'Energy & Fuels',
     year: 2024,
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 66,
@@ -240,8 +241,8 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '100514',
     researchArea: 'gnn-spatiotemporal',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 65,
@@ -250,8 +251,8 @@ export const publications: Publication[] = [
     journal: 'Journal of Hazardous Materials',
     year: 2024,
     pages: '136421',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 64,
@@ -261,8 +262,8 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '122401',
     researchArea: 'gnn-spatiotemporal',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 63,
@@ -284,8 +285,8 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '122092',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 61,
@@ -305,8 +306,8 @@ export const publications: Publication[] = [
     year: 2024,
     pages: '142515',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   {
     id: 59,
@@ -348,8 +349,8 @@ export const publications: Publication[] = [
     year: 2023,
     pages: '130240',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 55,
@@ -359,8 +360,8 @@ export const publications: Publication[] = [
     year: 2023,
     pages: '138842',
     researchArea: 'environmental-ai',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 54,
@@ -369,8 +370,8 @@ export const publications: Publication[] = [
     journal: 'Journal of Environmental Chemical Engineering',
     year: 2023,
     pages: '111460',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 53,
@@ -380,8 +381,8 @@ export const publications: Publication[] = [
     year: 2023,
     volume: '156',
     pages: '111113',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 52,
@@ -392,8 +393,8 @@ export const publications: Publication[] = [
     volume: '624',
     pages: '129973',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 51,
@@ -414,8 +415,8 @@ export const publications: Publication[] = [
     volume: '235',
     pages: '119865',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 49,
@@ -427,7 +428,6 @@ export const publications: Publication[] = [
     issue: '1',
     pages: '210280',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
   },
   // ===== 2022 =====
@@ -452,8 +452,8 @@ export const publications: Publication[] = [
     issue: '4',
     pages: '584–588',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 46,
@@ -475,8 +475,8 @@ export const publications: Publication[] = [
     volume: '218',
     pages: '118494',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 44,
@@ -497,8 +497,8 @@ export const publications: Publication[] = [
     year: 2022,
     pages: '118080',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 42,
@@ -509,8 +509,8 @@ export const publications: Publication[] = [
     volume: '806',
     pages: '150938',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   // ===== 2021 =====
   {
@@ -522,8 +522,8 @@ export const publications: Publication[] = [
     volume: '207',
     pages: '117821',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 40,
@@ -548,6 +548,7 @@ export const publications: Publication[] = [
     pages: '667–680',
     researchArea: 'environmental-ai',
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 38,
@@ -557,8 +558,8 @@ export const publications: Publication[] = [
     year: 2021,
     pages: '1446',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 37,
@@ -602,8 +603,8 @@ export const publications: Publication[] = [
     volume: '141',
     pages: '105068',
     researchArea: 'environmental-ai',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 33,
@@ -614,8 +615,8 @@ export const publications: Publication[] = [
     volume: '288',
     pages: '112415',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 32,
@@ -626,8 +627,8 @@ export const publications: Publication[] = [
     volume: '300',
     pages: '126858',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'corresponding',
   },
   {
     id: 31,
@@ -638,8 +639,8 @@ export const publications: Publication[] = [
     volume: '103',
     pages: '102007',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 30,
@@ -684,8 +685,8 @@ export const publications: Publication[] = [
     volume: '188',
     pages: '116535',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   // ===== 2020 =====
   {
@@ -698,8 +699,8 @@ export const publications: Publication[] = [
     issue: '12',
     pages: '3399',
     researchArea: 'environmental-ai',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 25,
@@ -721,8 +722,8 @@ export const publications: Publication[] = [
     volume: '590',
     pages: '125370',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   {
     id: 23,
@@ -755,8 +756,8 @@ export const publications: Publication[] = [
     volume: '115',
     pages: '106395',
     researchArea: 'water-quality-hab',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   {
     id: 20,
@@ -767,8 +768,8 @@ export const publications: Publication[] = [
     volume: '261',
     pages: '109920',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 19,
@@ -779,8 +780,8 @@ export const publications: Publication[] = [
     volume: '586',
     pages: '124886',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 18,
@@ -815,8 +816,8 @@ export const publications: Publication[] = [
     volume: '587',
     pages: '117164',
     researchArea: 'water-treatment',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   {
     id: 15,
@@ -849,8 +850,8 @@ export const publications: Publication[] = [
     volume: '122',
     pages: '104074',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 12,
@@ -873,8 +874,8 @@ export const publications: Publication[] = [
     issue: '3',
     pages: '512',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   // ===== 2017 =====
   {
@@ -934,8 +935,8 @@ export const publications: Publication[] = [
     volume: '320',
     pages: '442–457',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'co-first',
   },
   // ===== 2015 =====
   {
@@ -947,8 +948,8 @@ export const publications: Publication[] = [
     volume: '86',
     pages: '122–131',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   {
     id: 4,
@@ -972,8 +973,8 @@ export const publications: Publication[] = [
     issue: '2',
     pages: '347–359',
     researchArea: 'hydro-modeling',
-    isCorresponding: true,
     category: 'international',
+    authorRole: 'first',
   },
   // ===== Korean Journals =====
   {
