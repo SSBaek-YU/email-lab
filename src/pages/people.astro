@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
 import { getPIInfo, getMembersByRole, getAlumni } from '../data/people';
 
+const base = (import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/');
 const pi = getPIInfo();
 const postdocs = getMembersByRole('postdoc');
 const phdStudents = getMembersByRole('phd');
@@ -31,7 +32,11 @@ const memberSections = [
         <div class="pi-section">
           <h2>Principal Investigator</h2>
           <div class="pi-card">
-            <div class="pi-avatar" aria-hidden="true">{pi.name.charAt(0)}</div>
+            {pi.photo ? (
+              <img src={`${base}${pi.photo.replace(/^\//, '')}`} alt={pi.name} class="pi-photo" loading="lazy" />
+            ) : (
+              <div class="pi-avatar" aria-hidden="true">{pi.name.charAt(0)}</div>
+            )}
             <div class="pi-info">
               <h3>{pi.name}</h3>
               <p class="pi-name-ko">{pi.nameKo}</p>
@@ -75,9 +80,18 @@ const memberSections = [
           <div class="grid grid-3 members-grid">
             {section.members.map((member) => (
               <div class="card member-card">
-                <div class="member-avatar" aria-hidden="true">
-                  {member.name.charAt(0)}
-                </div>
+                {member.photo ? (
+                  <img
+                    src={`${base}${member.photo.replace(/^\//, '')}`}
+                    alt={member.name}
+                    class="member-photo"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="member-avatar" aria-hidden="true">
+                    {member.name.charAt(0)}
+                  </div>
+                )}
                 <h4>{member.name}</h4>
                 {member.nameKo && <p class="member-name-ko">{member.nameKo}</p>}
                 <p class="member-period">{member.period}</p>
@@ -86,6 +100,19 @@ const memberSections = [
                 )}
               </div>
             ))}
+
+            {/* Who's Next card at the end of each section */}
+            <a href={`${base}openings/`} class="card member-card whos-next-card">
+              <img
+                src={`${base}images/people/whos-next.gif`}
+                alt="Join our lab"
+                class="member-photo whos-next-img"
+                loading="lazy"
+              />
+              <h4>Who's Next?</h4>
+              <p class="member-name-ko">Join Our Lab!</p>
+              <p class="member-period">We are recruiting</p>
+            </a>
           </div>
         </div>
       ))}
@@ -130,10 +157,18 @@ const memberSections = [
     border-radius: var(--radius-lg);
   }
 
+  .pi-photo {
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
   .pi-avatar {
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
+    width: 160px;
+    height: 160px;
+    min-width: 160px;
     border-radius: var(--radius-lg);
     background: var(--color-primary);
     color: white;
@@ -218,18 +253,26 @@ const memberSections = [
     padding: var(--space-6);
   }
 
+  .member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    margin: 0 auto var(--space-4);
+  }
+
   .member-avatar {
-    width: 72px;
-    height: 72px;
+    width: 120px;
+    height: 120px;
     border-radius: var(--radius-full);
     background: var(--color-primary-bg);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: 700;
-    margin: 0 auto var(--space-3);
+    margin: 0 auto var(--space-4);
   }
 
   .member-card h4 {
@@ -253,6 +296,31 @@ const memberSections = [
     margin-top: var(--space-2);
   }
 
+  /* Who's Next Card */
+  .whos-next-card {
+    text-decoration: none;
+    color: var(--color-text);
+    border: 2px dashed var(--color-border);
+    background: var(--color-bg-alt);
+    transition: all var(--transition);
+  }
+
+  .whos-next-card:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .whos-next-card h4 {
+    color: var(--color-primary);
+  }
+
+  .whos-next-img {
+    border-radius: var(--radius-full);
+    background: var(--color-bg);
+  }
+
+  /* Alumni */
   .alumni-list {
     display: flex;
     flex-direction: column;
