@@ -17,7 +17,7 @@ export interface Person {
   alumniInfo?: string;
   displayOrder: number;
   verified: boolean;
-  additionalInfo?: string;
+  additionalInfo?: string | string[];
 }
 
 export const people: Person[] = [
@@ -44,7 +44,12 @@ export const people: Person[] = [
     alumni: false,
     displayOrder: 0,
     verified: true,
-    additionalInfo: 'Associate Editor, Water Research (2025–present) · Elsevier & Stanford World\'s Top 2% Scientists · YU Outstanding Research Award',
+    additionalInfo: [
+      'Assistant Professor, Yeungnam University (2022–present)',
+      'Associate Editor, Water Research (2025–present)',
+      'Elsevier & Stanford World\'s Top 2% Scientists (2025)',
+      'YU Outstanding Research Award',
+    ],
   },
   {
     id: 'minhyuk-jeung',

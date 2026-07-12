@@ -42,7 +42,15 @@ const memberSections = [
               <p class="pi-name-ko">{pi.nameKo}</p>
               <p class="pi-role">{pi.roleLabel}</p>
               <p class="pi-dept">{siteConfig.department}, {siteConfig.university}</p>
-              {pi.additionalInfo && <p class="pi-additional">{pi.additionalInfo}</p>}
+              {pi.additionalInfo && (
+                Array.isArray(pi.additionalInfo) ? (
+                  <ul class="pi-additional-list">
+                    {pi.additionalInfo.map((info) => <li>{info}</li>)}
+                  </ul>
+                ) : (
+                  <p class="pi-additional">{pi.additionalInfo}</p>
+                )
+              )}
               {pi.researchInterests && (
                 <div class="pi-interests">
                   <h4>Research Interests</h4>
@@ -213,6 +221,27 @@ const memberSections = [
     color: var(--color-secondary);
     font-weight: 500;
     margin-bottom: var(--space-4);
+  }
+
+  .pi-additional-list {
+    list-style: none;
+    margin-bottom: var(--space-4);
+  }
+
+  .pi-additional-list li {
+    font-size: var(--text-sm);
+    color: var(--color-secondary);
+    font-weight: 500;
+    padding: var(--space-1) 0;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .pi-additional-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
   }
 
   .pi-interests {
