@@ -48,7 +48,6 @@ export const people: Person[] = [
       'Assistant Professor, Yeungnam University (2022–present)',
       'Associate Editor, Water Research (2025–present)',
       'Elsevier & Stanford World\'s Top 2% Scientists (2025)',
-      'YU Outstanding Research Award',
     ],
   },
   {
