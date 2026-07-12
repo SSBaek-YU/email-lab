@@ -35,6 +35,16 @@ export const siteConfig = {
 
   mapQuery: 'Yeungnam+University+Building+E28',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=Yeungnam+University+Gyeongsan',
+
+  collaborators: [
+    'Korea Radioactive Waste Agency (KORAD)',
+    'Korea Atomic Energy Research Institute (KAERI)',
+    'Korea Institute of Ocean Science & Technology (KIOST)',
+    'Korea Water Resources Corporation (K-water)',
+    'Nakdonggang National Institute of Biological Resources',
+    'National Institute of Environmental Research (NIER)',
+    'Electronics and Telecommunications Research Institute (ETRI)',
+  ],
 } as const;
 
 export type SiteConfig = typeof siteConfig;

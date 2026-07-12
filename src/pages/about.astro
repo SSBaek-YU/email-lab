@@ -58,7 +58,7 @@ import { awards } from '../data/awards';
           <div class="awards-list">
             {awards.map((award) => (
               <div class="award-item">
-                <span class="award-year">{award.year}</span>
+                {award.year ? <span class="award-year">{award.year}</span> : <span class="award-year"></span>}
                 <div>
                   <h4>{award.title}</h4>
                   <p>{award.organization}</p>
@@ -66,6 +66,15 @@ import { awards } from '../data/awards';
               </div>
             ))}
           </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Collaborating Organizations</h2>
+          <ul class="collab-list">
+            {siteConfig.collaborators.map((org) => (
+              <li>{org}</li>
+            ))}
+          </ul>
         </div>
 
         <div class="about-section">
@@ -109,6 +118,28 @@ import { awards } from '../data/awards';
   .about-section p {
     color: var(--color-text-light);
     line-height: 1.8;
+  }
+
+  .collab-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    padding-left: 0;
+  }
+
+  .collab-list li {
+    list-style: none;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    .collab-list {
+      grid-template-columns: 1fr;
+    }
   }
 
   .value-card {

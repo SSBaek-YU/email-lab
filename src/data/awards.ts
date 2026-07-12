@@ -12,6 +12,20 @@ export interface Award {
 
 export const awards: Award[] = [
   {
+    id: 'award-top2',
+    title: "Elsevier & Stanford World's Top 2% Scientists",
+    organization: 'Elsevier / Stanford University',
+    verified: true,
+  },
+  {
+    id: 'award-yu',
+    title: 'Outstanding Research Award',
+    titleKo: '우수연구상',
+    organization: 'Yeungnam University',
+    organizationKo: '영남대학교',
+    verified: true,
+  },
+  {
     id: 'award-1',
     title: 'Best Research Award',
     organization: 'Korea Water Resource Association',
