@@ -1,8 +1,9 @@
 ---
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
 const navItems = [
-  { label: 'Home', labelKo: '홈', href: `${base}` },
+  { label: 'Home', labelKo: '홈', href: base },
   { label: 'About', labelKo: '소개', href: `${base}about/` },
   { label: 'Research', labelKo: '연구', href: `${base}research/` },
   { label: 'People', labelKo: '구성원', href: `${base}people/` },

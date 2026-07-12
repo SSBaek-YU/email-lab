@@ -5,7 +5,8 @@ import { researchAreas } from '../data/research';
 import { publications } from '../data/publications';
 import { getCurrentMembers, getPIInfo } from '../data/people';
 
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 const latestPubs = publications.slice(0, 5);
 const featuredResearch = researchAreas.slice(0, 4);
 const members = getCurrentMembers().slice(0, 6);
