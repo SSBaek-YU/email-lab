@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+import { awards } from '../data/awards';
+---
+
+<BaseLayout title="About" description="About the Environmental Monitoring/Modelling and AI Lab (EMAIL) at Yeungnam University.">
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">About {siteConfig.abbreviation}</h1>
+      <p class="section-subtitle">{siteConfig.labNameKo}</p>
+
+      <div class="about-content">
+        <div class="about-intro">
+          <p>
+            The <strong>{siteConfig.labName} ({siteConfig.abbreviation})</strong> is a research group
+            in the <strong>{siteConfig.department}</strong> at <strong>{siteConfig.university}</strong>,
+            led by <strong>Prof. {siteConfig.professorName} ({siteConfig.professorNameKo})</strong>.
+          </p>
+          <p>
+            Our lab focuses on environmental modeling and monitoring using numerical simulation
+            and artificial intelligence. We develop predictive models and monitoring technologies
+            for water quality, harmful algal blooms, and hydrological systems by combining
+            traditional environmental engineering approaches with cutting-edge AI methodologies.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>Research Vision</h2>
+          <p>
+            We pursue the integration of environmental numerical models with explainable artificial
+            intelligence to advance our understanding of complex environmental systems. Our goal is
+            to create reliable prediction and monitoring tools that support evidence-based environmental
+            management and decision-making.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>Core Values</h2>
+          <div class="grid grid-3 values-grid">
+            <div class="card value-card">
+              <h3>Scientific Rigor</h3>
+              <p>Combining domain expertise with data-driven methods for trustworthy research outcomes.</p>
+            </div>
+            <div class="card value-card">
+              <h3>Innovation</h3>
+              <p>Pushing boundaries at the intersection of environmental engineering and AI.</p>
+            </div>
+            <div class="card value-card">
+              <h3>Collaboration</h3>
+              <p>Working with researchers worldwide to address global environmental challenges.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Honors & Awards</h2>
+          <div class="awards-list">
+            {awards.map((award) => (
+              <div class="award-item">
+                <span class="award-year">{award.year}</span>
+                <div>
+                  <h4>{award.title}</h4>
+                  <p>{award.organization}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Affiliation</h2>
+          <p>
+            <strong>{siteConfig.department}</strong><br />
+            <a href={siteConfig.universityUrl} target="_blank" rel="noopener noreferrer">{siteConfig.university}</a><br />
+            {siteConfig.address}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-content {
+    max-width: 800px;
+  }
+
+  .about-intro {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-8);
+  }
+
+  .about-intro p {
+    margin-bottom: var(--space-4);
+  }
+
+  .about-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .about-section h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary-bg);
+  }
+
+  .about-section p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .value-card {
+    text-align: center;
+  }
+
+  .value-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .value-card p {
+    font-size: var(--text-sm);
+  }
+
+  .awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .award-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .award-year {
+    font-weight: 700;
+    color: var(--color-primary);
+    min-width: 50px;
+  }
+
+  .award-item h4 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .award-item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .values-grid {
+    margin-top: var(--space-4);
+  }
+</style>

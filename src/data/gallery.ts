@@ -1,0 +1,165 @@
+export interface GalleryEvent {
+  id: string;
+  title: string;
+  titleKo: string;
+  date: string;
+  description?: string;
+  images: string[];
+  thumbnailIndex: number;
+}
+
+// TODO: Add actual image paths after copying photos to public/images/gallery/
+export const galleryEvents: GalleryEvent[] = [
+  {
+    id: '2025-kiost',
+    title: 'KIOST Visit',
+    titleKo: 'KIOST 방문',
+    date: '2025-02-27',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2025-winter-retreat',
+    title: 'Winter Lab Retreat (Sobaeksan)',
+    titleKo: '소백산 겨울 MT',
+    date: '2025-01-23',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-agu',
+    title: '2024 AGU Fall Meeting',
+    titleKo: '2024 AGU 학회',
+    date: '2024-12-07',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-autumn',
+    title: 'Autumn Outing',
+    titleKo: '가을 소풍',
+    date: '2024-11-15',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-farewell-sukyung',
+    title: 'Farewell Party (Kim Sukyung)',
+    titleKo: '김수경 송별회',
+    date: '2024-08-31',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-cherry-blossom',
+    title: 'Cherry Blossom Viewing',
+    titleKo: '벚꽃 구경',
+    date: '2024-04-09',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-graduation',
+    title: 'Graduation Ceremony',
+    titleKo: '졸업식',
+    date: '2024-02-22',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2024-apsan',
+    title: 'Apsan Mountain Hike',
+    titleKo: '앞산 등산',
+    date: '2024-02-16',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-agu',
+    title: '2023 AGU Fall Meeting',
+    titleKo: '2023 AGU 학회',
+    date: '2023-12-11',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-kosenv',
+    title: 'Korean Society of Environmental Engineers Conference',
+    titleKo: '대한환경공학회',
+    date: '2023-11-01',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-farewell-subin',
+    title: 'Farewell Party (Kim Subin)',
+    titleKo: '수빈 송별회',
+    date: '2023-07-14',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-summer-retreat',
+    title: 'Summer Retreat',
+    titleKo: '여름 MT',
+    date: '2023-06-26',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-teachers-day',
+    title: "Teachers' Day",
+    titleKo: '스승의 날',
+    date: '2023-05-15',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-egu',
+    title: 'EGU General Assembly',
+    titleKo: 'EGU 학회',
+    date: '2023-04-23',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-pops-forum',
+    title: 'POPs Forum',
+    titleKo: '팝스포럼',
+    date: '2023-02-14',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2023-winter-retreat',
+    title: 'Winter Retreat',
+    titleKo: '겨울 MT',
+    date: '2023-01-01',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2022-kosenv',
+    title: 'KOSENV 2022 Conference',
+    titleKo: '환경공학회',
+    date: '2022-11-09',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2022-outing',
+    title: 'End of Semester Party',
+    titleKo: '나들이',
+    date: '2022-06-21',
+    images: [],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2022-birthday',
+    title: 'Professor Baek Birthday Party',
+    titleKo: '백교수님 생일',
+    date: '2022-06-03',
+    images: [],
+    thumbnailIndex: 0,
+  },
+];

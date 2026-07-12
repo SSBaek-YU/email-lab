@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { galleryEvents } from '../data/gallery';
+
+const sortedEvents = [...galleryEvents].sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<BaseLayout title="Gallery" description="Photos from EMAIL Lab events, conferences, and activities.">
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">Gallery</h1>
+      <p class="section-subtitle">Memories from our lab activities</p>
+
+      <div class="gallery-grid">
+        {sortedEvents.map((event) => (
+          <div class="card gallery-card">
+            <div class="gallery-placeholder" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div class="gallery-info">
+              <h3>{event.title}</h3>
+              <p class="gallery-title-ko">{event.titleKo}</p>
+              <time class="gallery-date" datetime={event.date}>
+                {new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="gallery-note">
+        <p>
+          Photos are being organized. To add photos, place image files in
+          <code>public/images/gallery/</code> and update the gallery data.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .gallery-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--color-bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+  }
+
+  .gallery-info {
+    padding: var(--space-4);
+  }
+
+  .gallery-info h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+  }
+
+  .gallery-title-ko {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .gallery-date {
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+  }
+
+  .gallery-note {
+    text-align: center;
+    padding: var(--space-8);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .gallery-note code {
+    background: var(--color-bg-alt);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

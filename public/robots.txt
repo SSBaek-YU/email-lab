@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://SSBaek-YU.github.io/email-lab/sitemap-index.xml

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// News items will be managed via markdown files in src/content/news/
+// For now, show a placeholder
+---
+
+<BaseLayout title="News" description="Latest news and updates from the EMAIL Lab.">
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">News</h1>
+      <p class="section-subtitle">Latest updates from our lab</p>
+
+      <div class="news-empty">
+        <p>News articles will be posted here soon.</p>
+        <p class="news-note">
+          Lab members can add news by creating Markdown files in the
+          <code>src/content/news/</code> directory.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .news-empty {
+    text-align: center;
+    padding: var(--space-16) 0;
+    color: var(--color-text-muted);
+  }
+
+  .news-note {
+    font-size: var(--text-sm);
+    margin-top: var(--space-4);
+  }
+
+  .news-note code {
+    background: var(--color-bg-alt);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+  }
+</style>
