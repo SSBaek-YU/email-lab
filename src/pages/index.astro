@@ -2,14 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
 import { researchAreas } from '../data/research';
-import { publications } from '../data/publications';
+import { publications, getInternationalPubs } from '../data/publications';
 import { getCurrentMembers, getPIInfo } from '../data/people';
 
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
-const latestPubs = publications.slice(0, 5);
-const featuredResearch = researchAreas.slice(0, 4);
-const members = getCurrentMembers().slice(0, 6);
+const intlPubs = getInternationalPubs();
+const latestPubs = intlPubs.slice(0, 5);
+const members = getCurrentMembers().slice(0, 8);
 const pi = getPIInfo();
 ---
 
@@ -24,7 +24,17 @@ const pi = getPIInfo();
       <h1 class="hero-title">{siteConfig.labName}</h1>
       <p class="hero-title-ko">{siteConfig.labNameKo}</p>
       <p class="hero-slogan">&ldquo;{siteConfig.slogan}&rdquo;</p>
-      <p class="hero-desc">{siteConfig.sloganFormal}</p>
+
+      <div class="hero-pillars">
+        <span class="pillar">Deep Learning</span>
+        <span class="pillar-dot"></span>
+        <span class="pillar">Modeling & Monitoring</span>
+        <span class="pillar-dot"></span>
+        <span class="pillar">Visualization (AR/VR)</span>
+        <span class="pillar-dot"></span>
+        <span class="pillar">Eco-friendly Semiconductor</span>
+      </div>
+
       <div class="hero-actions">
         <a href={`${base}research/`} class="btn btn-primary">Our Research</a>
         <a href={`${base}publications/`} class="btn btn-outline btn-outline-white">Publications</a>
@@ -43,33 +53,77 @@ const pi = getPIInfo();
     </div>
   </section>
 
-  <!-- Research Areas -->
+  <!-- About Lab -->
   <section class="section">
     <div class="container">
+      <h2 class="section-title">About the Lab</h2>
+      <div class="about-home">
+        <p>
+          EMAIL Lab investigates diverse environmental problems — water pollution, harmful algal blooms (HABs),
+          and hydrological/hydraulic phenomena — through convergence technologies based on numerical
+          analysis models and artificial intelligence (AI).
+        </p>
+        <p>
+          We integrate satellite/drone imagery, in-situ observation data, and meteorological information
+          to predict environmental data in real time, while enhancing reliability and interpretability
+          through Explainable AI (XAI).
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num">{intlPubs.length}+</span>
+          <span class="stat-label">SCI Publications</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Patents</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">{members.length}+</span>
+          <span class="stat-label">Lab Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">{siteConfig.collaborators.length}</span>
+          <span class="stat-label">Partner Institutions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Areas with Images -->
+  <section class="section section-alt">
+    <div class="container">
       <h2 class="section-title">Research Areas</h2>
-      <p class="section-subtitle">Bridging environmental science with artificial intelligence</p>
+      <p class="section-subtitle">Our four core research pillars</p>
       <div class="grid grid-2 research-grid">
-        {featuredResearch.map((area) => (
+        {researchAreas.map((area) => (
           <a href={`${base}research/`} class="card research-card">
-            <h3>{area.title}</h3>
-            <p class="research-card-ko">{area.titleKo}</p>
-            <p class="research-card-desc">{area.description}</p>
-            <div class="research-card-tags">
-              {area.keywords.slice(0, 3).map((kw) => (
-                <span class="tag">{kw}</span>
-              ))}
+            {area.image && (
+              <img
+                src={`${base}${area.image.replace(/^\//, '')}`}
+                alt={area.title}
+                class="research-card-img"
+                loading="lazy"
+              />
+            )}
+            <div class="research-card-body">
+              <h3>{area.title}</h3>
+              <p class="research-card-ko">{area.titleKo}</p>
+              <div class="research-card-tags">
+                {area.keywords.slice(0, 4).map((kw) => (
+                  <span class="tag">{kw}</span>
+                ))}
+              </div>
             </div>
           </a>
         ))}
-      </div>
-      <div class="section-cta">
-        <a href={`${base}research/`} class="btn btn-outline">View All Research Areas</a>
       </div>
     </div>
   </section>
 
   <!-- Latest Publications -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <h2 class="section-title">Recent Publications</h2>
       <p class="section-subtitle">Latest research from {siteConfig.abbreviation}</p>
@@ -109,16 +163,25 @@ const pi = getPIInfo();
   </section>
 
   <!-- People -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <h2 class="section-title">Our Team</h2>
       <p class="section-subtitle">Meet the members of {siteConfig.abbreviation}</p>
-      <div class="grid grid-3 people-grid">
+      <div class="grid grid-4 people-grid">
         {members.map((member) => (
           <div class="card people-card">
-            <div class="people-avatar" aria-hidden="true">
-              {member.name.charAt(0)}
-            </div>
+            {member.photo ? (
+              <img
+                src={`${base}${member.photo.replace(/^\//, '')}`}
+                alt={member.name}
+                class="people-photo"
+                loading="lazy"
+              />
+            ) : (
+              <div class="people-avatar" aria-hidden="true">
+                {member.name.charAt(0)}
+              </div>
+            )}
             <h4>{member.name}</h4>
             {member.nameKo && <p class="people-name-ko">{member.nameKo}</p>}
             <p class="people-role">{member.roleLabel}</p>
@@ -135,7 +198,7 @@ const pi = getPIInfo();
   <section class="section section-cta-banner">
     <div class="container cta-inner">
       <h2>Join Our Lab</h2>
-      <p>We are actively recruiting motivated students and researchers at all levels.</p>
+      <p>We are actively recruiting undergraduate interns, M.S./Ph.D. students, and researchers.</p>
       <div class="hero-actions">
         <a href={`${base}openings/`} class="btn btn-primary">Open Positions</a>
         <a href={`mailto:${siteConfig.email}`} class="btn btn-outline btn-outline-white">
@@ -181,15 +244,33 @@ const pi = getPIInfo();
     font-size: var(--text-xl);
     font-weight: 600;
     font-style: italic;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-6);
     opacity: 0.95;
   }
 
-  .hero-desc {
-    font-size: var(--text-base);
-    opacity: 0.8;
-    max-width: 600px;
-    margin: 0 auto var(--space-8);
+  .hero-pillars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .pillar {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .pillar-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
   }
 
   .hero-actions {
@@ -210,14 +291,67 @@ const pi = getPIInfo();
     color: white;
   }
 
+  /* About Home */
+  .about-home {
+    max-width: 800px;
+    margin-bottom: var(--space-8);
+  }
+
+  .about-home p {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-4);
+    line-height: 1.8;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: var(--space-6);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-num {
+    display: block;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
   /* Research Cards */
   .research-card {
     text-decoration: none;
     color: var(--color-text);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .research-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .research-card-body {
+    padding: var(--space-4) var(--space-6) var(--space-6);
   }
 
   .research-card h3 {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     margin-bottom: var(--space-1);
   }
 
@@ -225,16 +359,6 @@ const pi = getPIInfo();
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     margin-bottom: var(--space-3);
-  }
-
-  .research-card-desc {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    margin-bottom: var(--space-4);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .research-card-tags {
@@ -299,12 +423,20 @@ const pi = getPIInfo();
   /* People */
   .people-card {
     text-align: center;
-    padding: var(--space-8) var(--space-4);
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .people-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    margin: 0 auto var(--space-3);
   }
 
   .people-avatar {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     border-radius: var(--radius-full);
     background: var(--color-primary-bg);
     color: var(--color-primary);
@@ -313,22 +445,22 @@ const pi = getPIInfo();
     justify-content: center;
     font-size: var(--text-2xl);
     font-weight: 700;
-    margin: 0 auto var(--space-4);
+    margin: 0 auto var(--space-3);
   }
 
   .people-card h4 {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     margin-bottom: var(--space-1);
   }
 
   .people-name-ko {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 
   .people-role {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--color-text-light);
   }
 
@@ -365,6 +497,8 @@ const pi = getPIInfo();
       padding: var(--space-12) 0 var(--space-8);
     }
 
+    .pillar-dot { display: none; }
+
     .pub-item {
       flex-direction: column;
       gap: var(--space-2);
@@ -372,6 +506,14 @@ const pi = getPIInfo();
 
     .research-grid {
       grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .people-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
