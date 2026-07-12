@@ -85,9 +85,9 @@ export const people: Person[] = [
     verified: true,
   },
   {
-    id: 'jiye-park',
-    name: 'Jiye Park',
-    nameKo: '박지예',
+    id: 'jihyun-park',
+    name: 'Jihyun Park',
+    nameKo: '박지현',
     role: 'ms-phd',
     roleLabel: 'Integrated M.S.–Ph.D. Student',
     roleLabelKo: '석박사통합과정',
