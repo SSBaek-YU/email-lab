@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { researchAreas } from '../data/research';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 ---
 
 <BaseLayout title="Research" description="Research areas of the EMAIL Lab including water quality modeling, environmental AI, remote sensing, and digital twin technologies.">
@@ -19,6 +21,14 @@ import { researchAreas } from '../data/research';
                 <p class="research-title-ko">{area.titleKo}</p>
               </div>
             </div>
+            {area.image && (
+              <img
+                src={`${base}${area.image.replace(/^\//, '')}`}
+                alt={area.title}
+                class="research-img"
+                loading="lazy"
+              />
+            )}
             <p class="research-desc">{area.description}</p>
             <p class="research-desc-ko">{area.descriptionKo}</p>
             <div class="research-details">
@@ -83,6 +93,13 @@ import { researchAreas } from '../data/research';
   .research-title-ko {
     color: var(--color-text-muted);
     font-size: var(--text-sm);
+  }
+
+  .research-img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-border-light);
   }
 
   .research-desc {
