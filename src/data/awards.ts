@@ -15,6 +15,7 @@ export const awards: Award[] = [
     id: 'award-top2',
     title: "Elsevier & Stanford World's Top 2% Scientists",
     organization: 'Elsevier / Stanford University',
+    year: 2025,
     verified: true,
   },
   {
@@ -23,6 +24,7 @@ export const awards: Award[] = [
     titleKo: '우수연구상',
     organization: 'Yeungnam University',
     organizationKo: '영남대학교',
+    year: 2025,
     verified: true,
   },
   {
