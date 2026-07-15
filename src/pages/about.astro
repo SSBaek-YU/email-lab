@@ -24,32 +24,22 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
           </p>
           <p>
             EMAIL Lab investigates diverse environmental problems — water pollution, harmful algal blooms (HABs),
-            and hydrological/hydraulic phenomena — through convergence technologies based on numerical
-            analysis models and artificial intelligence (AI).
+            and hydrological/hydraulic phenomena — through convergence technologies based on numerical analysis
+            models and artificial intelligence (AI). We integrate satellite/drone imagery, in-situ observation
+            data, and meteorological information to predict environmental data in real time, while enhancing
+            reliability and interpretability through Explainable AI (XAI). Our research spans four core pillars:
+            <strong>deep learning</strong>, <strong>modeling &amp; monitoring</strong>,
+            <strong>visualization (AR/VR)</strong>, and <strong>eco-friendly semiconductor development</strong>.
           </p>
           <p>
-            We integrate satellite/drone imagery, in-situ observation data, and meteorological information
-            to predict environmental data in real time, while enhancing reliability and interpretability
-            through Explainable AI (XAI). Our work is organized into four research areas:
-            <strong>Environmental Artificial Intelligence</strong>,
-            <strong>Digital Twin &amp; Surrogate Modeling</strong>,
-            <strong>Immersive Visualization (AR/VR)</strong>, and
-            <strong>Eco-friendly Semiconductor &amp; Neuromorphic Modeling</strong>.
+            Building on these pillars, we integrate environmental numerical models with explainable AI to
+            advance our understanding of complex environmental systems and to build reliable prediction and
+            monitoring tools that support evidence-based environmental management and decision-making.
           </p>
         </div>
 
         <div class="about-section">
-          <h2>Research Vision</h2>
-          <p>
-            We pursue the integration of environmental numerical models with explainable artificial
-            intelligence to advance our understanding of complex environmental systems. Our goal is
-            to create reliable prediction and monitoring tools that support evidence-based environmental
-            management and decision-making.
-          </p>
-        </div>
-
-        <div class="about-section">
-          <h2>Research Areas</h2>
+          <h2>Research Interests</h2>
           <div class="grid grid-2 values-grid">
             {areas.map((area, i) => (
               <a class="card value-card" href={`${base}research#${area.id}`}>
