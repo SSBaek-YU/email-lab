@@ -1,8 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
-// News items will be managed via markdown files in src/content/news/
-// For now, show a placeholder
+const base = (import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/');
+
+const items = (await getCollection('news', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categoryLabels: Record<string, string> = {
+  announcement: 'Announcement',
+  publication: 'Publication',
+  award: 'Award',
+  event: 'Event',
+  people: 'People',
+};
 ---
 
 <BaseLayout title="News" description="Latest news and updates from the EMAIL Lab.">
@@ -11,33 +22,105 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h1 class="section-title">News</h1>
       <p class="section-subtitle">Latest updates from our lab</p>
 
-      <div class="news-empty">
-        <p>News articles will be posted here soon.</p>
-        <p class="news-note">
-          Lab members can add news by creating Markdown files in the
-          <code>src/content/news/</code> directory.
-        </p>
-      </div>
+      {items.length === 0 ? (
+        <div class="news-empty">
+          <p>News articles will be posted here soon.</p>
+        </div>
+      ) : (
+        <div class="news-list">
+          {items.map((item) => (
+            <a href={`${base}news/${item.id}/`} class="card news-item">
+              <div class="news-meta">
+                <span class={`news-badge badge-${item.data.category}`}>
+                  {categoryLabels[item.data.category] ?? item.data.category}
+                </span>
+                <time datetime={item.data.date.toISOString()}>
+                  {item.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </div>
+              <h2 class="news-title">{item.data.title}</h2>
+              {item.data.titleKo && <p class="news-title-ko">{item.data.titleKo}</p>}
+              {item.data.summary && <p class="news-summary">{item.data.summary}</p>}
+              <span class="news-more">Read more &rarr;</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .news-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .news-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+  }
+
+  .news-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: var(--radius-full, 999px);
+    font-weight: 600;
+    font-size: var(--text-xs);
+    background: var(--color-bg-alt);
+    color: var(--color-text-muted);
+  }
+
+  .badge-award { background: #fef3c7; color: #92400e; }
+  .badge-publication { background: #dbeafe; color: #1e40af; }
+  .badge-event { background: #dcfce7; color: #166534; }
+  .badge-people { background: #f3e8ff; color: #6b21a8; }
+
+  .news-title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+  }
+
+  .news-title-ko {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .news-summary {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    line-height: 1.6;
+  }
+
+  .news-more {
+    font-size: var(--text-sm);
+    color: var(--color-primary, #2563eb);
+    font-weight: 500;
+  }
+
   .news-empty {
     text-align: center;
     padding: var(--space-16) 0;
     color: var(--color-text-muted);
-  }
-
-  .news-note {
-    font-size: var(--text-sm);
-    margin-top: var(--space-4);
-  }
-
-  .news-note code {
-    background: var(--color-bg-alt);
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
   }
 </style>
