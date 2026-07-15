@@ -8,14 +8,29 @@ export interface GalleryEvent {
   thumbnailIndex: number;
 }
 
-// TODO: Add actual image paths after copying photos to public/images/gallery/
 export const galleryEvents: GalleryEvent[] = [
+  {
+    id: '2026-kiost',
+    title: 'KIOST Research Exchange Meeting',
+    titleKo: 'KIOST 연구교류회',
+    date: '2026-07-07',
+    images: ['/images/gallery/2026-kiost/1.jpg'],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2026-egu',
+    title: 'EGU General Assembly 2026',
+    titleKo: 'EGU 학회 2026',
+    date: '2026-05-04',
+    images: ['/images/gallery/2026-egu/1.jpg'],
+    thumbnailIndex: 0,
+  },
   {
     id: '2025-kiost',
     title: 'KIOST Visit',
     titleKo: 'KIOST 방문',
     date: '2025-02-27',
-    images: [],
+    images: ['/images/gallery/2025-kiost/1.jpg'],
     thumbnailIndex: 0,
   },
   {
@@ -23,7 +38,7 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Winter Lab Retreat (Sobaeksan)',
     titleKo: '소백산 겨울 MT',
     date: '2025-01-23',
-    images: [],
+    images: ['/images/gallery/2025-winter-retreat/1.jpg'],
     thumbnailIndex: 0,
   },
   {
@@ -31,7 +46,21 @@ export const galleryEvents: GalleryEvent[] = [
     title: '2024 AGU Fall Meeting',
     titleKo: '2024 AGU 학회',
     date: '2024-12-07',
-    images: [],
+    images: [
+      '/images/gallery/2024-agu/1.jpg',
+      '/images/gallery/2024-agu/2.jpg',
+      '/images/gallery/2024-agu/3.jpg',
+      '/images/gallery/2024-agu/4.jpg',
+      '/images/gallery/2024-agu/5.jpg',
+      '/images/gallery/2024-agu/6.jpg',
+      '/images/gallery/2024-agu/7.jpg',
+      '/images/gallery/2024-agu/8.jpg',
+      '/images/gallery/2024-agu/9.jpg',
+      '/images/gallery/2024-agu/10.jpg',
+      '/images/gallery/2024-agu/11.jpg',
+      '/images/gallery/2024-agu/12.jpg',
+      '/images/gallery/2024-agu/13.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -39,7 +68,7 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Autumn Outing',
     titleKo: '가을 소풍',
     date: '2024-11-15',
-    images: [],
+    images: ['/images/gallery/2024-autumn/1.jpg'],
     thumbnailIndex: 0,
   },
   {
@@ -47,7 +76,7 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Farewell Party (Kim Sukyung)',
     titleKo: '김수경 송별회',
     date: '2024-08-31',
-    images: [],
+    images: ['/images/gallery/2024-farewell-sukyung/1.jpg'],
     thumbnailIndex: 0,
   },
   {
@@ -55,7 +84,11 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Cherry Blossom Viewing',
     titleKo: '벚꽃 구경',
     date: '2024-04-09',
-    images: [],
+    images: [
+      '/images/gallery/2024-cherry-blossom/1.jpg',
+      '/images/gallery/2024-cherry-blossom/2.jpg',
+      '/images/gallery/2024-cherry-blossom/3.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -63,7 +96,11 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Graduation Ceremony',
     titleKo: '졸업식',
     date: '2024-02-22',
-    images: [],
+    images: [
+      '/images/gallery/2024-graduation/1.jpg',
+      '/images/gallery/2024-graduation/2.jpg',
+      '/images/gallery/2024-graduation/3.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -71,7 +108,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Apsan Mountain Hike',
     titleKo: '앞산 등산',
     date: '2024-02-16',
-    images: [],
+    images: [
+      '/images/gallery/2024-apsan/1.jpg',
+      '/images/gallery/2024-apsan/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -79,7 +119,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: '2023 AGU Fall Meeting',
     titleKo: '2023 AGU 학회',
     date: '2023-12-11',
-    images: [],
+    images: [
+      '/images/gallery/2023-agu/1.jpg',
+      '/images/gallery/2023-agu/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -87,7 +130,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Korean Society of Environmental Engineers Conference',
     titleKo: '대한환경공학회',
     date: '2023-11-01',
-    images: [],
+    images: [
+      '/images/gallery/2023-kosenv/1.jpg',
+      '/images/gallery/2023-kosenv/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -95,7 +141,16 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Farewell Party (Kim Subin)',
     titleKo: '수빈 송별회',
     date: '2023-07-14',
-    images: [],
+    images: [
+      '/images/gallery/2023-farewell-subin/1.jpg',
+      '/images/gallery/2023-farewell-subin/2.jpg',
+      '/images/gallery/2023-farewell-subin/3.jpg',
+      '/images/gallery/2023-farewell-subin/4.jpg',
+      '/images/gallery/2023-farewell-subin/5.jpg',
+      '/images/gallery/2023-farewell-subin/6.jpg',
+      '/images/gallery/2023-farewell-subin/7.jpg',
+      '/images/gallery/2023-farewell-subin/8.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -103,7 +158,13 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Summer Retreat',
     titleKo: '여름 MT',
     date: '2023-06-26',
-    images: [],
+    images: [
+      '/images/gallery/2023-summer-retreat/1.jpg',
+      '/images/gallery/2023-summer-retreat/2.jpg',
+      '/images/gallery/2023-summer-retreat/3.jpg',
+      '/images/gallery/2023-summer-retreat/4.jpg',
+      '/images/gallery/2023-summer-retreat/5.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -111,7 +172,7 @@ export const galleryEvents: GalleryEvent[] = [
     title: "Teachers' Day",
     titleKo: '스승의 날',
     date: '2023-05-15',
-    images: [],
+    images: ['/images/gallery/2023-teachers-day/1.jpg'],
     thumbnailIndex: 0,
   },
   {
@@ -119,7 +180,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'EGU General Assembly',
     titleKo: 'EGU 학회',
     date: '2023-04-23',
-    images: [],
+    images: [
+      '/images/gallery/2023-egu/1.jpg',
+      '/images/gallery/2023-egu/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -127,7 +191,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'POPs Forum',
     titleKo: '팝스포럼',
     date: '2023-02-14',
-    images: [],
+    images: [
+      '/images/gallery/2023-pops-forum/1.jpg',
+      '/images/gallery/2023-pops-forum/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -135,7 +202,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Winter Retreat',
     titleKo: '겨울 MT',
     date: '2023-01-01',
-    images: [],
+    images: [
+      '/images/gallery/2023-winter-retreat/1.jpg',
+      '/images/gallery/2023-winter-retreat/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -143,7 +213,10 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'KOSENV 2022 Conference',
     titleKo: '환경공학회',
     date: '2022-11-09',
-    images: [],
+    images: [
+      '/images/gallery/2022-kosenv/1.jpg',
+      '/images/gallery/2022-kosenv/2.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -151,7 +224,11 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'End of Semester Party',
     titleKo: '나들이',
     date: '2022-06-21',
-    images: [],
+    images: [
+      '/images/gallery/2022-outing/1.jpg',
+      '/images/gallery/2022-outing/2.jpg',
+      '/images/gallery/2022-outing/3.jpg',
+    ],
     thumbnailIndex: 0,
   },
   {
@@ -159,7 +236,12 @@ export const galleryEvents: GalleryEvent[] = [
     title: 'Professor Baek Birthday Party',
     titleKo: '백교수님 생일',
     date: '2022-06-03',
-    images: [],
+    images: [
+      '/images/gallery/2022-birthday/1.jpg',
+      '/images/gallery/2022-birthday/2.jpg',
+      '/images/gallery/2022-birthday/3.jpg',
+      '/images/gallery/2022-birthday/4.jpg',
+    ],
     thumbnailIndex: 0,
   },
 ];
