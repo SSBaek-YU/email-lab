@@ -2,6 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site';
 import { awards } from '../data/awards';
+import { researchAreas } from '../data/research';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder);
 ---
 
 <BaseLayout title="About" description="About the Environmental Monitoring/Modelling and AI Lab (EMAIL) at Yeungnam University.">
@@ -25,9 +30,11 @@ import { awards } from '../data/awards';
           <p>
             We integrate satellite/drone imagery, in-situ observation data, and meteorological information
             to predict environmental data in real time, while enhancing reliability and interpretability
-            through Explainable AI (XAI). Our research spans four core pillars: <strong>deep learning</strong>,
-            <strong>modeling &amp; monitoring</strong>, <strong>visualization (AR/VR)</strong>,
-            and <strong>eco-friendly semiconductor development</strong>.
+            through Explainable AI (XAI). Our work is organized into four research areas:
+            <strong>Environmental Artificial Intelligence</strong>,
+            <strong>Digital Twin &amp; Surrogate Modeling</strong>,
+            <strong>Immersive Visualization (AR/VR)</strong>, and
+            <strong>Eco-friendly Semiconductor &amp; Neuromorphic Modeling</strong>.
           </p>
         </div>
 
@@ -42,24 +49,19 @@ import { awards } from '../data/awards';
         </div>
 
         <div class="about-section">
-          <h2>Research Pillars</h2>
+          <h2>Research Areas</h2>
           <div class="grid grid-2 values-grid">
-            <div class="card value-card">
-              <h3>Deep Learning</h3>
-              <p>Explainable AI, multimodal AI, GNN, and reinforcement learning for environmental prediction and decision support.</p>
-            </div>
-            <div class="card value-card">
-              <h3>Modeling & Monitoring</h3>
-              <p>Numerical simulation (SWMM, EFDC, EPANET) integrated with satellite, drone, and in-situ sensors for real-time environmental monitoring.</p>
-            </div>
-            <div class="card value-card">
-              <h3>Visualization (AR/VR)</h3>
-              <p>Immersive augmented reality and virtual reality applications for environmental simulation, flood risk assessment, and infrastructure management.</p>
-            </div>
-            <div class="card value-card">
-              <h3>Eco-friendly Semiconductor</h3>
-              <p>Memristor-based neuromorphic computing for energy-efficient environmental AI systems and low-power water quality prediction.</p>
-            </div>
+            {areas.map((area, i) => (
+              <a class="card value-card" href={`${base}research#${area.id}`}>
+                <span class="area-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{area.title}</h3>
+                <p class="area-ko">{area.titleKo}</p>
+                <p>{area.description}</p>
+                <div class="area-tags">
+                  {area.keywords.slice(0, 4).map((k) => <span class="area-tag">{k}</span>)}
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
@@ -153,17 +155,56 @@ import { awards } from '../data/awards';
   }
 
   .value-card {
-    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+
+  .value-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .area-num {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 800;
+    color: var(--color-primary-bg);
+    letter-spacing: 1px;
+    margin-bottom: var(--space-1);
   }
 
   .value-card h3 {
     font-size: var(--text-lg);
     color: var(--color-primary);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
+  }
+
+  .area-ko {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-3);
   }
 
   .value-card p {
     font-size: var(--text-sm);
+  }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .area-tag {
+    font-size: var(--text-xs);
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-sm);
+    background: var(--color-primary-bg);
+    color: var(--color-primary);
   }
 
   .awards-list {
