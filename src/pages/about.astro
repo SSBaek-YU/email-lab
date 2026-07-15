@@ -47,9 +47,6 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
                 <h3>{area.title}</h3>
                 <p class="area-ko">{area.titleKo}</p>
                 <p>{area.description}</p>
-                <div class="area-tags">
-                  {area.keywords.slice(0, 4).map((k) => <span class="area-tag">{k}</span>)}
-                </div>
               </a>
             ))}
           </div>
@@ -180,21 +177,6 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
 
   .value-card p {
     font-size: var(--text-sm);
-  }
-
-  .area-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-3);
-  }
-
-  .area-tag {
-    font-size: var(--text-xs);
-    padding: 2px var(--space-2);
-    border-radius: var(--radius-sm);
-    background: var(--color-primary-bg);
-    color: var(--color-primary);
   }
 
   .awards-list {
