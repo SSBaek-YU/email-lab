@@ -51,16 +51,6 @@ const memberSections = [
                   <p class="pi-additional">{pi.additionalInfo}</p>
                 )
               )}
-              {pi.researchInterests && (
-                <div class="pi-interests">
-                  <h4>Research Interests</h4>
-                  <div class="tag-list">
-                    {pi.researchInterests.map((interest) => (
-                      <span class="tag">{interest}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
               <div class="pi-links">
                 {pi.email && (
                   <a href={`mailto:${pi.email}`} class="btn btn-sm btn-outline">
@@ -244,22 +234,6 @@ const memberSections = [
     color: var(--color-secondary);
   }
 
-  .pi-interests {
-    margin-bottom: var(--space-4);
-  }
-
-  .pi-interests h4 {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-2);
-  }
-
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-
   .pi-links {
     display: flex;
     gap: var(--space-3);
@@ -423,8 +397,7 @@ const memberSections = [
       text-align: center;
     }
 
-    .pi-links,
-    .tag-list {
+    .pi-links {
       justify-content: center;
     }
   }
