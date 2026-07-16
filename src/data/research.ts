@@ -39,8 +39,8 @@ export const researchAreas: ResearchArea[] = [
   },
   {
     id: 'visualization',
-    title: 'AR/VR Digital Twin for Environmental Simulation',
-    titleKo: 'AR/VR 디지털 트윈 환경 시뮬레이션',
+    title: 'Immersive Digital Twin for Environmental Simulation',
+    titleKo: '몰입형 디지털 트윈 환경 시뮬레이션',
     description: 'Developing augmented reality and virtual reality applications for environmental simulation and management. Integrating hydraulic models with 3D visualization for immersive flood simulation, water distribution system monitoring, and chemical spill scenario analysis.',
     descriptionKo: '증강현실(AR)과 가상현실(VR) 기술을 환경 시뮬레이션 및 관리에 적용합니다. 수리 모델과 3D 시각화를 통합하여 몰입형 홍수 시뮬레이션, 상수관망 모니터링, 화학사고 시나리오 분석을 수행합니다.',
     methods: ['Augmented Reality', 'Virtual Reality', 'EPANET', 'SWMM', '3D Visualization', 'Unity'],
