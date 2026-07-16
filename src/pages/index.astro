@@ -19,6 +19,8 @@ const pi = getPIInfo();
 >
   <!-- Hero Section -->
   <section class="hero">
+    <img src={`${base}images/home/hero.jpg`} alt="" class="hero-bg" aria-hidden="true" />
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-content">
       <p class="hero-dept">{siteConfig.department}, {siteConfig.university}</p>
       <h1 class="hero-title">{siteConfig.labName}</h1>
@@ -212,10 +214,46 @@ const pi = getPIInfo();
 <style>
   /* Hero */
   .hero {
-    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-accent) 100%);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     color: white;
-    padding: var(--space-20) 0 var(--space-16);
+    padding: var(--space-24) 0 var(--space-20);
     text-align: center;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    z-index: -2;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13, 71, 161, 0.72) 0%,
+        rgba(21, 101, 192, 0.58) 45%,
+        rgba(13, 71, 161, 0.82) 100%
+      ),
+      linear-gradient(
+        120deg,
+        rgba(13, 71, 161, 0.35) 0%,
+        rgba(0, 131, 143, 0.35) 100%
+      );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
   }
 
   .hero-dept {
