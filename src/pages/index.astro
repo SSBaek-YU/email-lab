@@ -22,6 +22,7 @@ const pi = getPIInfo();
     <img src={`${base}images/home/hero.jpg`} alt="" class="hero-bg" aria-hidden="true" />
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-content">
+      <div class="hero-panel">
       <p class="hero-dept">{siteConfig.department}, {siteConfig.university}</p>
       <h1 class="hero-title">{siteConfig.labName}</h1>
       <p class="hero-title-ko">{siteConfig.labNameKo}</p>
@@ -51,6 +52,7 @@ const pi = getPIInfo();
           </svg>
           Google Scholar
         </a>
+      </div>
       </div>
     </div>
   </section>
@@ -218,10 +220,10 @@ const pi = getPIInfo();
     isolation: isolate;
     overflow: hidden;
     color: white;
-    min-height: 88vh;
+    min-height: 66vh;
     display: flex;
     align-items: center;
-    padding: var(--space-16) 0;
+    padding: var(--space-12) 0;
     text-align: center;
   }
 
@@ -252,7 +254,18 @@ const pi = getPIInfo();
     position: relative;
     z-index: 1;
     width: 100%;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 2px 18px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 2px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-panel {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-8) var(--space-10);
+    background: rgba(9, 46, 105, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .hero-dept {
