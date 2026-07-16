@@ -21,8 +21,8 @@ const pi = getPIInfo();
   <section class="hero">
     <img src={`${base}images/home/hero.jpg`} alt="" class="hero-bg" aria-hidden="true" />
     <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-content">
-      <div class="hero-panel">
+    <div class="hero-panel">
+      <div class="container hero-content">
       <p class="hero-dept">{siteConfig.department}, {siteConfig.university}</p>
       <h1 class="hero-title">{siteConfig.labName}</h1>
       <p class="hero-title-ko">{siteConfig.labNameKo}</p>
@@ -258,12 +258,11 @@ const pi = getPIInfo();
   }
 
   .hero-panel {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: var(--space-8) var(--space-8) var(--space-10);
+    width: 100%;
+    padding: var(--space-12) 0;
     background: rgba(9, 46, 105, 0.42);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: var(--radius-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
