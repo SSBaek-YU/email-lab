@@ -26,6 +26,28 @@ export const galleryEvents: GalleryEvent[] = [
     thumbnailIndex: 0,
   },
   {
+    id: '2026-graduation',
+    title: 'Graduation Ceremony (Na Hyeon Gwon)',
+    titleKo: '권나현 졸업식',
+    date: '2026-02-20',
+    images: [
+      '/images/gallery/2026-graduation/1.jpg',
+      '/images/gallery/2026-graduation/2.jpg',
+    ],
+    thumbnailIndex: 0,
+  },
+  {
+    id: '2025-kosenv',
+    title: 'Korean Society of Environmental Engineers Conference 2025',
+    titleKo: '대한환경공학회 2025',
+    date: '2025-11-19',
+    images: [
+      '/images/gallery/2025-kosenv/1.jpg',
+      '/images/gallery/2025-kosenv/2.jpg',
+    ],
+    thumbnailIndex: 0,
+  },
+  {
     id: '2025-kiost',
     title: 'KIOST Visit',
     titleKo: 'KIOST 방문',

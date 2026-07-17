@@ -26,6 +26,8 @@ const MAP = {
   '2024/241207_AGU': '2024-agu',
   '2024/250123_소백산_MT': '2025-winter-retreat',
   '2024/250227_KIOST_방문': '2025-kiost',
+  '사진추가/대한환경공학회_251119': '2025-kosenv',
+  '사진추가/권나현 졸업식_260220': '2026-graduation',
 };
 
 // single source file (relative to SRC_ROOT) -> gallery event id
