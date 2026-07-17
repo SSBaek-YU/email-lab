@@ -57,12 +57,19 @@ const currentPath = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid var(--color-border-light);
     height: var(--header-height);
     display: flex;
     align-items: center;
+    transition: box-shadow var(--transition), background var(--transition);
+  }
+
+  .site-header.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-sm);
   }
 
   .header-inner {
@@ -102,10 +109,23 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
   }
 
-  .nav-link:hover,
-  .nav-link.active {
+  .nav-link:hover {
     color: var(--color-primary);
     background: var(--color-primary-bg);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 3px var(--space-1) -2px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   }
 
   .mobile-toggle {
@@ -200,4 +220,10 @@ const currentPath = Astro.url.pathname;
       nav?.classList.remove('open');
     }
   });
+
+  // Elevate header on scroll
+  const header = document.getElementById('site-header');
+  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 </script>

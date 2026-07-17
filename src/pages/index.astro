@@ -81,12 +81,14 @@ const pi = getPIInfo();
         {researchAreas.map((area) => (
           <a href={`${base}research/`} class="card research-card">
             {area.image && (
-              <img
-                src={`${base}${area.image.replace(/^\//, '')}`}
-                alt={area.title}
-                class="research-card-img"
-                loading="lazy"
-              />
+              <div class="research-card-img-wrap">
+                <img
+                  src={`${base}${area.image.replace(/^\//, '')}`}
+                  alt={area.title}
+                  class="research-card-img"
+                  loading="lazy"
+                />
+              </div>
             )}
             <div class="research-card-body">
               <h3>{area.title}</h3>
@@ -338,11 +340,20 @@ const pi = getPIInfo();
     overflow: hidden;
   }
 
+  .research-card-img-wrap {
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
   .research-card-img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-    border-bottom: 1px solid var(--color-border-light);
+    transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .research-card:hover .research-card-img {
+    transform: scale(1.05);
   }
 
   .research-card-body {
