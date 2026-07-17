@@ -80,17 +80,20 @@ const sortedEvents = [...galleryEvents]
   .gallery-card {
     padding: 0;
     overflow: hidden;
-    border: none;
+    border: 1px solid var(--color-border);
     text-align: left;
     cursor: pointer;
-    background: var(--color-bg);
+    background: var(--color-bg-card);
     font: inherit;
     color: inherit;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   }
 
   .gallery-card:hover {
     transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border));
   }
 
   .gallery-thumb {

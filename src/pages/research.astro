@@ -69,14 +69,17 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
   }
 
   .research-area {
+    background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-8);
-    transition: box-shadow var(--transition);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition), border-color var(--transition);
   }
 
   .research-area:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border));
   }
 
   .research-header {
@@ -150,7 +153,7 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
   }
 
   .tag-green {
-    background: #e8f5e9;
+    background: var(--color-secondary-bg);
     color: var(--color-secondary);
   }
 

@@ -137,12 +137,12 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
     text-decoration: none;
     color: inherit;
     position: relative;
-    transition: box-shadow var(--transition), transform var(--transition);
   }
 
   .value-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border));
+    transform: translateY(-3px);
   }
 
   .area-num {

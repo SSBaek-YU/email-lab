@@ -21,8 +21,14 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
   }
 
   .not-found h1 {
-    font-size: 6rem;
-    color: var(--color-primary-bg);
+    font-size: clamp(4rem, 14vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-4);
   }
 
