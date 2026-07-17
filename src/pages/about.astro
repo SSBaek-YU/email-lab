@@ -16,19 +16,6 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
       <p class="section-subtitle">{siteConfig.labNameKo}</p>
 
       <div class="about-content">
-        <div class="about-intro">
-          <p>
-            The <strong>{siteConfig.labName} ({siteConfig.abbreviation})</strong> is a research group
-            in the <strong>{siteConfig.department}</strong> at <strong>{siteConfig.university}</strong>.
-          </p>
-          <p>
-            AI meets the environment — that's us. We teach machines to predict water quality and
-            greenhouse gases. We build digital twins that simulate the real world in seconds. We turn
-            data into AR/VR worlds you can walk through. And we're making it all greener with
-            eco-friendly chips and brain-inspired computing. Smart AI, better environment. That's the goal.
-          </p>
-        </div>
-
         <div class="about-section">
           <h2>Research Interests</h2>
           <div class="grid grid-2 values-grid">
@@ -83,15 +70,6 @@ const areas = [...researchAreas].sort((a, b) => a.displayOrder - b.displayOrder)
 <style>
   .about-content {
     max-width: 800px;
-  }
-
-  .about-intro {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-8);
-  }
-
-  .about-intro p {
-    margin-bottom: var(--space-4);
   }
 
   .about-section {
