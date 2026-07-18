@@ -41,6 +41,8 @@ export const people: Person[] = [
     email: 'ssbaek@yu.ac.kr',
     photo: '/images/people/baek-sangsoo.jpg',
     scholarUrl: 'https://scholar.google.co.kr/citations?user=JarDiqkAAAAJ&hl=ko',
+    githubUrl: 'https://github.com/SSBaek-YU',
+    linkedinUrl: 'https://www.linkedin.com/in/sang-soo-baek-8a0b20219/',
     alumni: false,
     displayOrder: 0,
     verified: true,

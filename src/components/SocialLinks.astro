@@ -1,0 +1,107 @@
+---
+interface Props {
+  email?: string;
+  scholarUrl?: string;
+  githubUrl?: string;
+  linkedinUrl?: string;
+  orcidUrl?: string;
+  size?: 'sm' | 'md';
+  align?: 'start' | 'center';
+}
+
+const {
+  email,
+  scholarUrl,
+  githubUrl,
+  linkedinUrl,
+  orcidUrl,
+  size = 'sm',
+  align = 'start',
+} = Astro.props;
+
+const hasAny = Boolean(email || scholarUrl || githubUrl || linkedinUrl || orcidUrl);
+---
+
+{hasAny && (
+  <div class:list={['social-links', `sz-${size}`, `al-${align}`]}>
+    {email && (
+      <a class="social-btn" href={`mailto:${email}`} aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+        </svg>
+      </a>
+    )}
+    {scholarUrl && (
+      <a class="social-btn" href={scholarUrl} target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+        </svg>
+      </a>
+    )}
+    {githubUrl && (
+      <a class="social-btn" href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.33-1.74-1.33-1.74-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.21 1.84 1.21 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.83 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.21a11.5 11.5 0 0 1 6 0c2.29-1.53 3.3-1.21 3.3-1.21.66 1.64.24 2.86.12 3.16.77.83 1.24 1.88 1.24 3.17 0 4.53-2.81 5.53-5.49 5.82.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.69.83.57C20.56 21.88 24 17.48 24 12.29 24 5.78 18.63.5 12 .5z"/>
+        </svg>
+      </a>
+    )}
+    {linkedinUrl && (
+      <a class="social-btn" href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+      </a>
+    )}
+    {orcidUrl && (
+      <a class="social-btn" href={orcidUrl} target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 18.16H5.62V7.83h1.75v10.33zM6.5 6.68a1.02 1.02 0 1 1 0-2.04 1.02 1.02 0 0 1 0 2.04zm11.66 11.48h-1.74v-5.03c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65v5.12h-1.74V7.83h1.67v1.41h.02c.36-.66 1.24-1.35 2.55-1.35 2.73 0 3.24 1.66 3.24 3.81v6.46z"/>
+        </svg>
+      </a>
+    )}
+  </div>
+)}
+
+<style>
+  .social-links {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .al-center {
+    justify-content: center;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text-light);
+    transition: color var(--transition), border-color var(--transition),
+      background var(--transition), transform var(--transition);
+  }
+
+  .sz-sm .social-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+    transform: translateY(-1px);
+  }
+
+  .social-btn svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+</style>

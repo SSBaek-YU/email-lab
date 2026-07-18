@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 import { siteConfig } from '../data/site';
 import { getPIInfo, getMembersByRole, getAlumni } from '../data/people';
 
@@ -52,19 +53,14 @@ const memberSections = [
                 )
               )}
               <div class="pi-links">
-                {pi.email && (
-                  <a href={`mailto:${pi.email}`} class="btn btn-sm btn-outline">
-                    Email
-                  </a>
-                )}
-                {pi.scholarUrl && (
-                  <a href={pi.scholarUrl} target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-                    </svg>
-                    Google Scholar
-                  </a>
-                )}
+                <SocialLinks
+                  email={pi.email}
+                  scholarUrl={pi.scholarUrl}
+                  githubUrl={pi.githubUrl}
+                  linkedinUrl={pi.linkedinUrl}
+                  orcidUrl={pi.orcidUrl}
+                  size="md"
+                />
               </div>
             </div>
           </div>
@@ -93,9 +89,16 @@ const memberSections = [
                 <h4>{member.name}</h4>
                 {member.nameKo && <p class="member-name-ko">{member.nameKo}</p>}
                 <p class="member-period">{member.period}</p>
-                {member.email && (
-                  <a href={`mailto:${member.email}`} class="member-email">{member.email}</a>
-                )}
+                <div class="member-social">
+                  <SocialLinks
+                    email={member.email}
+                    scholarUrl={member.scholarUrl}
+                    githubUrl={member.githubUrl}
+                    linkedinUrl={member.linkedinUrl}
+                    orcidUrl={member.orcidUrl}
+                    align="center"
+                  />
+                </div>
               </div>
             ))}
 
@@ -299,10 +302,8 @@ const memberSections = [
     color: var(--color-text-light);
   }
 
-  .member-email {
-    font-size: var(--text-sm);
-    display: block;
-    margin-top: var(--space-2);
+  .member-social {
+    margin-top: var(--space-3);
   }
 
   /* Who's Next Banner */
